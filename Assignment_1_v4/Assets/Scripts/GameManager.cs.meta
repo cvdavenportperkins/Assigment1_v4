@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a1730134decce4849929fd224f018fd5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerPrefab: {fileID: 5574598889833547192, guid: e584f117521f86346b0a95813caf465e, type: 3}
+  - foodPrefab: {fileID: 163615592309713313, guid: 16858237776d39e418b592e3548f9255, type: 3}
+  - arenaCenter: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
