@@ -118,8 +118,6 @@ public class GameManager : MonoBehaviour
         SoundManager.SoundMan.PlaySound(SoundManager.SoundMan.HitSFX); 
         Debug.Log("Health: " + health);
 
-        StartCoroutine(FlashPlayerOrange());
-        
         if (health == 2)
         {
             healthImage3.SetActive(false);
@@ -133,17 +131,6 @@ public class GameManager : MonoBehaviour
             healthImage1.SetActive(false);
             GameOver();
         }
-    }
-
-    IEnumerator FlashPlayerOrange()
-    {
-        SpriteRenderer playerSprite = PlayerMovement.PlayMove.playerPrefab.GetComponent<SpriteRenderer>();
-        Color originalColor = playerSprite.color;
-        Color flashColor = new Color(1f, 0.64f, 0f);
-
-        playerSprite.color = flashColor;
-        yield return new WaitForSeconds(0.2f);
-        playerSprite.color = originalColor;
     }
 
     void UpdateScoreText()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager SoundMan;
-    public AudioSource AS;
-    public AudioClip HitSFX, BoundarySFX, DecaySFX, PickUpSFX, ComboSFX, ScoreSFX, SpawnSFX, DespawnSFX;
+    public static SoundManager SoundMan;                           //assign SoundManager Singleton vaiable
+    public AudioSource AS;           
+    public AudioClip HitSFX, BoundarySFX, DecaySFX, PickUpSFX, ComboSFX, ScoreSFX, SpawnSFX, DespawnSFX; //create audioclip variables
 
-    void Awake()
+    void Awake()                                                    //set singleton behavior to ensure a single persistent instance
     {
         if (SoundMan == null)
         {
@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)                       //assign PlaySound clip reference method and PlayOneShot behavior 
     {
         AS.PlayOneShot(clip);
     }
