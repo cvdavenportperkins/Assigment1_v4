@@ -3,7 +3,16 @@ guid: 230e10cad524fe244a403dc9fb6093eb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - AS: {instanceID: 0}
+  - HitSFX: {fileID: 8300000, guid: 4058a3a6f3047c84a96caa65bf14c968, type: 3}
+  - BoundarySFX: {fileID: 8300000, guid: b5826ce629239ee4095f699b5c4318ba, type: 3}
+  - DecaySFX: {fileID: 8300000, guid: 26043e1f28978bc47853ca964c24dce8, type: 3}
+  - PickUpSFX: {fileID: 8300000, guid: 8418a1036b6f35040a85df450b286a5f, type: 3}
+  - ComboSFX: {fileID: 8300000, guid: 1f16ff4739adf5a4b92fed822d77e6de, type: 3}
+  - ScoreSFX: {fileID: 8300000, guid: 52819249eaa14ab4fa2694bb7774aaa1, type: 3}
+  - SpawnSFX: {fileID: 8300000, guid: dd881f41080f2fd4fad18566405abe8d, type: 3}
+  - DespawnSFX: {fileID: 8300000, guid: b08c2e326d184504ea3ad8cbf6e1f9e7, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

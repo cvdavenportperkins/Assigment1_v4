@@ -163,9 +163,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  rb: {fileID: 4893007610958567271}
   tailSegments: []
   tailPrefab: {fileID: 1771754954312846137, guid: 7e22c29cefa2fbb429c2b829a2af8c31, type: 3}
+  playerPrefab: {fileID: 5574598889833547192}
   hasTail: 0
+  decayEffect: {fileID: 1610716688329199432, guid: b3d5e5bfe1cb6014a9256cf62081a50d, type: 3}
 --- !u!114 &4470305110000465393
 MonoBehaviour:
   m_ObjectHideFlags: 0

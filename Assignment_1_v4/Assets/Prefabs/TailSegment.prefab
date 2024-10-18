@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5060584286440128646}
   - component: {fileID: -6360310660487995863}
   m_Layer: 0
-  m_Name: TailSegment
+  m_Name: tailSegment
   m_TagString: Tail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

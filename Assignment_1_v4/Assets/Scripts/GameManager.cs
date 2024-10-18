@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start method called");
+        //Debug.Log("Start method called");
         health = 3;
         InstantiatePlayer();
         InvokeRepeating("SpawnFood", 1f, 3f);

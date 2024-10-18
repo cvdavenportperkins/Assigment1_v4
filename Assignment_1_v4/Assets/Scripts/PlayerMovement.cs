@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject tailPrefab;
     public GameObject playerPrefab;
     public bool hasTail = false;
+    public ParticleSystem decayEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddTailSegment()                                        //define method of adding player tail segments
     {
-        Debug.Log("Adding Tail Segment");
+        //Debug.Log("Adding Tail Segment");
         Vector2 newTailPosition;
         if (tailSegments.Count > 0)
         {
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject newTailSegment = Instantiate(tailPrefab, newTailPosition, Quaternion.identity);  //instantiate tail segments
         tailSegments.Add(newTailSegment);                                                           //add tail segments to list
         SoundManager.SoundMan.PlaySound(SoundManager.SoundMan.PickUpSFX);                           //play PickUpSFX sound effect     
-        StartCoroutine(DespawnTailSegment(newTailSegment, 8f));                                     //Inititate tail despawn coroutine (not working)
+        StartCoroutine(DespawnTailSegment(newTailSegment, 10f));                                     //Inititate tail despawn coroutine (not working)
         Debug.Log("Tail segment added at position: ");
         hasTail = true;                                                                              //set hasTail condition to true
     }
@@ -60,27 +61,34 @@ public class PlayerMovement : MonoBehaviour
 
         while (timePassed < delay)                                                                   //start while loop condition for the timer delay
         {
-            if (sprite != null && timePassed >= 4f && timePassed < 7f)                               //set timeer activation parameters for color flash if sprite is valid
+            Debug.Log("TIME PASSED: " + timePassed + " / " + delay);
+            if (sprite != null && timePassed >= 5f && timePassed < 9f)                               //set timeer activation parameters for color flash if sprite is valid
             {
                 sprite.color = Color.red;
                 yield return new WaitForSeconds(0.1f);                                                //set colorflash interval
                 if (sprite != null) sprite.color = originalColor;
                 yield return new WaitForSeconds(0.4f);
+                timePassed += 0.5f;
             }
             else
             {
-                yield return null;                                                                   //if conditions are not met, return no action
+                yield return null; 
+                timePassed += Time.deltaTime;                                                           //if conditions are not met, return no action
             }
-            timePassed += Time.deltaTime;                                                            //maintain track of elapsed game time 
+                                                                       //maintain track of elapsed game time 
         }
-
-        if (tailSegment != null)                                                                     //if tailsegment is valid
+        //Debug.Log("X");
+        if (tailSegment != null)                                                                     //check if tailsegment is valid
         {
+            //Debug.Log("Y");
+            decayEffect.transform.position = tailSegment.transform.position;
+            decayEffect.Emit(10);
+            
             tailSegment.SetActive(false);                                                           //set tail segments to inactive and remove from list (not working)
             tailSegments.Remove(tailSegment);
             SoundManager.SoundMan.PlaySound(SoundManager.SoundMan.DecaySFX);                        //play DecaySFX (not working)
             GameManager.GameMan.DecreaseHealth();                                                   //decrease health on timer expiration (not working)
-            Debug.Log("Play Sound Decay");
+            Debug.Log("Play DecaySFX");
         }
     }
 
