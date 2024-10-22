@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Play Sound Spawn");
         GameObject food = Instantiate(foodPrefab, foodPosition, Quaternion.identity);
         SoundManager.SoundMan.PlaySound(SoundManager.SoundMan.SpawnSFX);
-        StartCoroutine(DespawnFoodAfterTime(food, 3f));
+        StartCoroutine(DespawnFoodAfterTime(food, 4f));
     }
 
     IEnumerator DespawnFoodAfterTime(GameObject food, float delay)

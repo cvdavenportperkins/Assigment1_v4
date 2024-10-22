@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject newTailSegment = Instantiate(tailPrefab, newTailPosition, Quaternion.identity);  //instantiate tail segments
         tailSegments.Add(newTailSegment);                                                           //add tail segments to list
         SoundManager.SoundMan.PlaySound(SoundManager.SoundMan.PickUpSFX);                           //play PickUpSFX sound effect     
-        StartCoroutine(DespawnTailSegment(newTailSegment, 10f));                                     //Inititate tail despawn coroutine (not working)
+        StartCoroutine(DespawnTailSegment(newTailSegment, 9f));                                     //Inititate tail despawn coroutine (not working)
         Debug.Log("Tail segment added at position: ");
         hasTail = true;                                                                              //set hasTail condition to true
     }
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         while (timePassed < delay)                                                                   //start while loop condition for the timer delay
         {
             Debug.Log("TIME PASSED: " + timePassed + " / " + delay);
-            if (sprite != null && timePassed >= 5f && timePassed < 9f)                               //set timeer activation parameters for color flash if sprite is valid
+            if (sprite != null && timePassed >= 6f && timePassed < 9f)                               //set timeer activation parameters for color flash if sprite is valid
             {
                 sprite.color = Color.red;
                 yield return new WaitForSeconds(0.1f);                                                //set colorflash interval
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("X");
         if (tailSegment != null)                                                                     //check if tailsegment is valid
         {
-            //Debug.Log("Y");
+            Debug.Log("Emit Particle");
             decayEffect.transform.position = tailSegment.transform.position;
             decayEffect.Emit(10);
             
